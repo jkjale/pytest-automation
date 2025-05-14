@@ -8,7 +8,7 @@
 # -k stands for method names execution
 # to skip a test you give it the tag @pytest.mark.skip
 # to explicitly mark a test as a failure you tag it with @pytest.mark.xfail
-# fixtures are used as setup and tear down methods for test cases - conftest.py file to generalize fixture and make it available to all test cases
+# fixtures are used as setup and tear down methods for test cases - sample_conftest.py file to generalize fixture and make it available to all test cases
 # datadriven and parameterization can be done with return statements in list format
 # when you define fixture scope to class only, it will run once before class is initiated and at the end
 
@@ -21,6 +21,7 @@ To run all tests in a directory, go that directory and in the terminal call:
     - pytest -k CreditCard -v -s    --> run all tests that have "CreditCard" in their method name
     - pytest -m smoke -v -s   --> run all tests that have "smoke" tags
     - pytest --html=report.html
+    - pytest --browser_name=firefox
 '''
 import pytest
 
