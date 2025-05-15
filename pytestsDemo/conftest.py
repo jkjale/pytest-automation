@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
@@ -13,16 +14,16 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='function') # 'function', 'class', 'module', 'session'
 def browserInstance(request):
     browser_name = request.config.getoption('browser_name')
     if browser_name == 'chrome':
         driver_path = ChromeDriverManager().install()
-        service = Service(driver_path)
+        service = ChromeService(driver_path)
         driver = webdriver.Chrome(service=service)
     elif browser_name == 'firefox':
         driver_path = GeckoDriverManager().install()
-        service = Service(driver_path)
+        service = FirefoxService(driver_path)
         driver = webdriver.Firefox(service=service)
     driver.maximize_window()
     driver.implicitly_wait(5)

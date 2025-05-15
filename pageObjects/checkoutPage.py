@@ -12,7 +12,7 @@ class CheckoutPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def select_country(self, country='united states of america'):
+    def select_country(self, country):
         country_input = self.driver.find_element(*self.COUNTRY_INPUT)
         country_input.send_keys(country)
         self.driver.wait.until(
