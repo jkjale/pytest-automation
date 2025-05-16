@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
+from utils.browserutils import BrowserUtils
 
 
-class LoginPage:
+class LoginPage(BrowserUtils):
     USERNAME_INPUT = (By.ID, 'username')
     PASSWORD_INPUT = (By.ID, 'password')
     SIGNIN_BUTTON = (By.ID, 'signInBtn')
