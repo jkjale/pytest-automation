@@ -12,21 +12,20 @@ with open(test_data_path) as f:
     test_list = test_data["data"]
 
 
+@pytest.mark.smoke
 @pytest.mark.parametrize("test_list_item", test_list)
 def test_e2e(browserInstance, test_list_item):
     driver = browserInstance
-    # driver.get('https://rahulshettyacademy.com/loginpagePractise/')
     driver.get("https://rahulshettyacademy.com/angularpractice/")
-
-    # loginPage = LoginPage(driver)
-    # loginPage.login(test_list_item['userEmail'], test_list_item['userPassword'])
 
     homePage = HomePage(driver)
     homePage.go_to_shop_page()
+    print('jake', homePage.getTitle())
 
     shopPage = ShopPage(driver)
     shopPage.add_product_to_cart(test_list_item['productName'])
     shopPage.go_to_cart()
+    print('jake2', shopPage.getTitle())
 
     cart = Cart(driver)
     cart.click_checkout_button()

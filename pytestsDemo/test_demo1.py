@@ -22,11 +22,12 @@ To run all tests in a directory, go that directory and in the terminal call:
     - pytest -m smoke -v -s   --> run all tests that have "smoke" tags
     - pytest --html=report.html
     - pytest --browser_name=firefox
+    - pytest -n 10  --> run 10 tests in parallel  --> need to do "pip install pytest-xdist"
 '''
 import pytest
 
 
-@pytest.mark.smoke
+# @pytest.mark.smoke
 def test_firstProgram(setup):
     print('Helloo')
 

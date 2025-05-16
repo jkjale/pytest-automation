@@ -1,12 +1,11 @@
 from selenium.webdriver.common.by import By
 
+from utils.browserutils import BrowserUtils
 
-class ShopPage:
+
+class ShopPage(BrowserUtils):
     PRODUCT_CARDS = (By.CSS_SELECTOR, ".card.h-100")
     CHECKOUT_BUTTON = (By.CSS_SELECTOR, "#navbarResponsive a")
-
-    def __init__(self, driver):
-        self.driver = driver
 
     def add_product_to_cart(self, product_name):
         products = self.driver.find_elements(*self.PRODUCT_CARDS)
