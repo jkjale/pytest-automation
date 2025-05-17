@@ -20,9 +20,10 @@ To run all tests in a directory, go that directory and in the terminal call:
     - pytest test_demo1.py -v -s
     - pytest -k CreditCard -v -s    --> run all tests that have "CreditCard" in their method name
     - pytest -m smoke -v -s   --> run all tests that have "smoke" tags
-    - pytest --html=report.html
+    - pytest --html=reports/report.html
     - pytest --browser_name=firefox
     - pytest -n 10  --> run 10 tests in parallel  --> need to do "pip install pytest-xdist"
+    - pytest -n 2 -m smoke --browser_name=firefox --html=reports/report.html
 '''
 import pytest
 
